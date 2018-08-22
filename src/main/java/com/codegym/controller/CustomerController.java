@@ -1,5 +1,6 @@
 package com.codegym.controller;
 
+import com.codegym.model.Customer;
 import com.codegym.service.CustomerService;
 import com.codegym.service.CustomerServiceImpl;
 
@@ -17,4 +18,9 @@ public class CustomerController {
         return "index";
     }
 
+    @GetMapping("/customer/create")
+    public String create(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "create";
+    }
 }
