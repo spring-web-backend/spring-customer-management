@@ -54,6 +54,14 @@ public class CustomerController {
         return "delete";
     }
 
+    @PostMapping("/customer/delete")
+    public String delete(Customer customer, RedirectAttributes redirect) {
+        customerService.remove(customer.getId());
+        redirect.addFlashAttribute("success", "Removed customer successfully!");
+        return "redirect:/";
+    }
+
+
 
 
 }
