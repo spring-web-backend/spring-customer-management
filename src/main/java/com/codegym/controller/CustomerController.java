@@ -41,8 +41,12 @@ public class CustomerController {
         return "edit";
     }
 
-
-
+    @PostMapping("/customer/update")
+    public String update(Customer customer, RedirectAttributes redirect) {
+        customerService.update(customer.getId(), customer);
+        redirect.addFlashAttribute("success", "Modified customer successfully!");
+        return "redirect:/";
+    }
 
 
 }
